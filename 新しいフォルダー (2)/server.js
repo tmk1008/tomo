@@ -7,8 +7,10 @@ Deno.serve(async (_req) => {
   console.log(`pathname: ${pathname}`);
 
   if (_req.method === "GET" && pathname === "/shiritori") {
-    return new Response (previousWord )
-    }
+    return new Response(JSON.stringify({ currentWord: previousWord }), {
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+    });
+  }
   
 
   if (_req.method === "POST" && pathname === "/shiritori") {
